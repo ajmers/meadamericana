@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Philip Mead — Mead Americana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --parchment:#E7DCC0;
+    --paper:#F1E8D0;
+    --paper-dark:#DCCEAA;
+    --ink:#241D14;
+    --ink-soft:#5A4E3A;
+    --brass:#8C6D33;
+    --brass-light:#B79A5C;
+    --oxblood:#5B211B;
+    --indigo:#33465A;
+    --line:rgba(36,29,20,0.18);
+    --shadow: 0 10px 30px rgba(36,29,20,0.18);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    background-image:
+      radial-gradient(rgba(36,29,20,0.035) 1px, transparent 1px);
+    background-size: 3px 3px;
+    color:var(--ink);
+    font-family:'Source Serif 4', serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+
+  .label{
+    font-family:'Courier Prime', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:0.72rem;
+    color:var(--brass);
+  }
+
+  /* NAV */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:rgba(231,220,192,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-wrap{
+    max-width:1180px; margin:0 auto; padding:18px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.25rem;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    display:flex; align-items:center; gap:10px;
+  }
+  .brand-logo{
+    height:44px; width:auto;
+    mix-blend-mode:multiply;
+  }
+  nav.links{ display:flex; gap:34px; }
+  nav.links a{
+    text-decoration:none;
+    font-family:'Courier Prime', monospace;
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--ink-soft);
+    padding-bottom:4px;
+    border-bottom:1px solid transparent;
+    transition:border-color .2s, color .2s;
+  }
+  nav.links a:hover, nav.links a.active{ color:var(--oxblood); border-color:var(--oxblood); }
+  .nav-cta{
+    font-family:'Courier Prime', monospace;
+    font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em;
+    border:1px solid var(--ink); padding:8px 14px; text-decoration:none;
+    color:var(--ink); transition:all .2s;
+  }
+  .nav-cta:hover{ background:var(--ink); color:var(--parchment); }
+
+  /* SECTION shell */
+  section{ padding:96px 28px; }
+  .inner{ max-width:1180px; margin:0 auto; }
+
+  /* ABOUT PAGE HERO */
+  .about-hero{
+    padding:72px 28px 0;
+  }
+  .about-hero .inner{ max-width:900px; }
+  .about-hero .quote{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:500;
+    font-size:clamp(1.6rem, 3.2vw, 2.3rem); line-height:1.5; color:var(--ink);
+    border-left:2px solid var(--oxblood); padding-left:28px;
+    margin:0 0 20px;
+  }
+  .about-hero .sig{
+    font-family:'Courier Prime', monospace;
+    font-size:0.78rem; letter-spacing:0.06em; color:var(--brass);
+    padding-left:30px;
+  }
+
+  /* ABOUT BODY */
+  .about-body{ padding-top:56px; }
+  .about-body .inner{
+    max-width:900px;
+    display:grid; gap:26px;
+  }
+  .about-body p{ line-height:1.85; color:var(--ink-soft); font-size:1.06rem; margin:0; }
+  .about-body h2{
+    font-family:'Fraunces', serif; font-weight:500;
+    font-size:clamp(1.4rem, 2.4vw, 1.8rem);
+    margin:18px 0 0;
+    color:var(--ink);
+  }
+
+  .credentials{
+    margin-top:20px;
+    padding:34px 36px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    box-shadow:var(--shadow);
+  }
+  .credentials .label{ margin-bottom:16px; display:block; }
+  .credentials ul{ margin:0; padding:0; list-style:none; display:grid; gap:14px; }
+  .credentials li{
+    line-height:1.6; color:var(--ink-soft); font-size:0.98rem;
+    padding-left:20px; position:relative;
+  }
+  .credentials li::before{
+    content:"—"; position:absolute; left:0; color:var(--brass);
+  }
+  .credentials strong{ color:var(--ink); font-weight:600; }
+
+  /* CONTACT / FOOTER */
+  footer{
+    background:var(--paper); border-top:1px solid var(--line);
+    padding:80px 28px 40px;
+    margin-top:40px;
+  }
+  .foot-grid{
+    max-width:1180px; margin:0 auto;
+    display:grid; grid-template-columns: 1.2fr 1fr 1fr; gap:48px;
+    padding-bottom:50px; border-bottom:1px solid var(--line);
+  }
+  .foot-grid h3{ font-family:'Fraunces', serif; font-weight:500; font-size:1.4rem; margin:0 0 14px; }
+  .foot-grid p{ color:var(--ink-soft); line-height:1.7; margin:0 0 8px; font-size:0.95rem; }
+  .foot-grid a{ text-decoration:none; color:var(--indigo); }
+  .foot-col .label{ margin-bottom:12px; display:block; }
+  .foot-bottom{
+    max-width:1180px; margin:26px auto 0; display:flex; justify-content:space-between;
+    font-family:'Courier Prime', monospace; font-size:0.72rem; color:var(--ink-soft);
+    letter-spacing:0.04em; flex-wrap:wrap; gap:10px;
+  }
+
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  @media (max-width:900px){
+    nav.links{ display:none; }
+    .foot-grid{ grid-template-columns:1fr; gap:32px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <img class="brand-logo" src="https://images.squarespace-cdn.com/content/v1/66d53142ed0ce01b2a4d64e9/df248cca-1649-4631-a333-53d471be3985/MEAD+Americana+Logo.png?format=1500w" alt="Mead Americana">
+    </a>
+    <nav class="links">
+      <a href="index.html#collection">Collection</a>
+      <a href="index.html#provenance">Provenance</a>
+      <a href="about.html" class="active">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <a href="index.html#contact" class="nav-cta">Inquire</a>
+  </div>
+</header>
+
+<section class="about-hero">
+  <div class="inner reveal">
+    <span class="label">About Mead Americana</span>
+    <p class="quote" style="margin-top:16px;">A professional historian's eye for the objects that witnessed the Revolution.</p>
+  </div>
+</section>
+
+<section class="about-body">
+  <div class="inner reveal">
+    <p>Philip Mead is a professional historian with a rare combination of scholarly expertise and a lifelong instinct for uncovering the hidden stories in early American objects. He specializes in the 18th century, with a particular focus on the Revolutionary era, and brings decades of experience in identifying, researching, and authenticating historical material.</p>
+
+    <p>Philip served as the founding Chief Historian and Director of Curatorial Affairs at the Museum of the American Revolution (2014–2022), where he helped shape the museum's curatorial vision from the ground up. He developed the intellectual framework for the core exhibitions, curated five major special exhibits, and led content creation for films, digital interactives, and galleries.</p>
+
+    <p>Philip's academic foundation is rooted in years of rigorous training: he studied history at Brown University under Pulitzer Prize-winning historian Gordon S. Wood and earned his MA and PhD from Harvard University, where his research focused on the diaries of Revolutionary War soldiers. His scholarship bridges the gap between academic history and public storytelling, with a keen focus on illuminating the lives of ordinary people in extraordinary times.</p>
+
+    <p>An expert in identifying and interpreting 18th-century artifacts, Philip has a track record of significant discoveries. Among the most notable is his identification of a previously unrecognized 18th-century watercolor of George Washington's tent by Pierre Charles L'Enfant — the only known eyewitness image of the tent from the Revolutionary War period. His research and curatorial leadership turned the painting into the centerpiece of the acclaimed exhibit <em>Among His Troops</em>.</p>
+
+    <p>Philip's fascination with history began early, sparked by the personal belongings of Revolutionary soldiers. Even as a student, he scoured auctions and antique shops across New England, sharpening his eye for historical objects. That lifelong passion — combined with decades of academic and curatorial experience — continues to inform his work today, as he brings the past to life through the objects that witnessed it.</p>
+
+    <div class="credentials">
+      <span class="label">At a Glance</span>
+      <ul>
+        <li><strong>Founding Chief Historian &amp; Director of Curatorial Affairs</strong>, Museum of the American Revolution (2014–2022)</li>
+        <li><strong>PhD &amp; MA, History</strong>, Harvard University — research on the diaries of Revolutionary War soldiers</li>
+        <li><strong>BA, History</strong>, Brown University — studied under Gordon S. Wood</li>
+        <li><strong>Identified</strong> a previously unrecognized L'Enfant watercolor of George Washington's tent, later the centerpiece of <em>Among His Troops</em></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="foot-grid">
+    <div>
+      <h3>Mead Americana</h3>
+      <p>Fine antiques and historical consulting.<br>Ambler, Pennsylvania — visits by appointment.</p>
+    </div>
+    <div class="foot-col">
+      <span class="label">Contact</span>
+      <p><a href="mailto:philipmead@meadamericana.com">philipmead@meadamericana.com</a></p>
+      <p>(617) 372-0299</p>
+    </div>
+    <div class="foot-col">
+      <span class="label">Follow</span>
+      <p><a href="https://www.instagram.com/philip_mead" target="_blank">Instagram</a></p>
+      <p><a href="https://www.facebook.com/philip.mead.302331" target="_blank">Facebook</a></p>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© Mead Americana</span>
+    <span>Est. Ambler, PA</span>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
