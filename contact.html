@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Philip Mead — Mead Americana</title>
+<title>Contact — Mead Americana</title>
 <link rel="icon" type="image/png" href="https://images.squarespace-cdn.com/content/v1/66d53142ed0ce01b2a4d64e9/df248cca-1649-4631-a333-53d471be3985/MEAD+Americana+Logo.png?format=100w">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
@@ -92,62 +92,73 @@
   section{ padding:96px 28px; }
   .inner{ max-width:1180px; margin:0 auto; }
 
-  /* ABOUT PAGE HERO */
-  .about-hero{
-    padding:72px 28px 0;
-  }
-  .about-hero .inner{ max-width:1180px; }
-  .about-hero-grid{
-    display:grid; grid-template-columns: 0.85fr 1.15fr; gap:64px; align-items:center;
-  }
-  .about-hero-grid img{
-    width:100%; border:1px solid var(--line); box-shadow:var(--shadow);
-  }
-  .about-hero .quote{
+  /* CONTACT PAGE HERO */
+  .contact-hero{ padding:72px 28px 0; }
+  .contact-hero .inner{ max-width:900px; }
+  .contact-hero .quote{
     font-family:'Fraunces', serif; font-style:italic; font-weight:500;
     font-size:clamp(1.6rem, 3.2vw, 2.3rem); line-height:1.5; color:var(--ink);
     border-left:2px solid var(--oxblood); padding-left:28px;
     margin:0 0 20px;
   }
-  .about-hero .sig{
-    font-family:'Courier Prime', monospace;
-    font-size:0.78rem; letter-spacing:0.06em; color:var(--brass);
-    padding-left:30px;
-  }
 
-  /* ABOUT BODY */
-  .about-body{ padding-top:56px; }
-  .about-body .inner{
-    max-width:900px;
-    display:grid; gap:26px;
+  /* CONTACT BODY */
+  .contact-body{ padding-top:56px; }
+  .contact-grid{
+    max-width:1100px; margin:0 auto;
+    display:grid; grid-template-columns: 0.9fr 1.1fr; gap:64px; align-items:start;
   }
-  .about-body p{ line-height:1.85; color:var(--ink-soft); font-size:1.06rem; margin:0; }
-  .about-body h2{
-    font-family:'Fraunces', serif; font-weight:500;
-    font-size:clamp(1.4rem, 2.4vw, 1.8rem);
-    margin:18px 0 0;
-    color:var(--ink);
-  }
+  .contact-info p{ line-height:1.8; color:var(--ink-soft); font-size:1.02rem; margin:0 0 20px; }
+  .contact-info a{ color:var(--indigo); text-decoration:none; }
+  .contact-info .label{ margin-bottom:10px; display:block; }
+  .contact-info .item{ margin-bottom:24px; }
+  .contact-info .item strong{ display:block; color:var(--ink); font-weight:600; margin-bottom:4px; }
 
-  .credentials{
-    margin-top:20px;
-    padding:34px 36px;
+  form.contact-form{
     background:var(--paper);
     border:1px solid var(--line);
     box-shadow:var(--shadow);
+    padding:36px;
+    display:grid; gap:20px;
   }
-  .credentials .label{ margin-bottom:16px; display:block; }
-  .credentials ul{ margin:0; padding:0; list-style:none; display:grid; gap:14px; }
-  .credentials li{
-    line-height:1.6; color:var(--ink-soft); font-size:0.98rem;
-    padding-left:20px; position:relative;
+  .field{ display:grid; gap:8px; }
+  .field label{
+    font-family:'Courier Prime', monospace;
+    font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em;
+    color:var(--ink-soft);
   }
-  .credentials li::before{
-    content:"—"; position:absolute; left:0; color:var(--brass);
+  .field input, .field textarea{
+    font-family:'Source Serif 4', serif;
+    font-size:1rem;
+    padding:12px 14px;
+    background:var(--parchment);
+    border:1px solid var(--line);
+    color:var(--ink);
   }
-  .credentials strong{ color:var(--ink); font-weight:600; }
+  .field input:focus, .field textarea:focus{
+    outline:none; border-color:var(--brass);
+  }
+  .field textarea{ resize:vertical; min-height:140px; }
+  .hp-field{ position:absolute; left:-9999px; top:-9999px; }
 
-  /* CONTACT / FOOTER */
+  .submit-btn{
+    font-family:'Courier Prime', monospace;
+    font-size:0.78rem; text-transform:uppercase; letter-spacing:0.1em;
+    border:1px solid var(--ink); background:var(--ink); color:var(--parchment);
+    padding:14px 20px; cursor:pointer; transition:opacity .2s;
+    justify-self:start;
+  }
+  .submit-btn:hover{ opacity:0.85; }
+  .submit-btn:disabled{ opacity:0.5; cursor:not-allowed; }
+
+  .form-status{
+    font-family:'Courier Prime', monospace;
+    font-size:0.85rem;
+  }
+  .form-status.ok{ color:#2d5a3d; }
+  .form-status.err{ color:var(--oxblood); }
+
+  /* FOOTER */
   footer{
     background:var(--paper); border-top:1px solid var(--line);
     padding:80px 28px 40px;
@@ -174,7 +185,7 @@
   @media (max-width:900px){
     nav.links{ display:none; }
     .foot-grid{ grid-template-columns:1fr; gap:32px; }
-    .about-hero-grid{ grid-template-columns:1fr; gap:32px; }
+    .contact-grid{ grid-template-columns:1fr; gap:36px; }
   }
 </style>
 </head>
@@ -188,44 +199,61 @@
     <nav class="links">
       <a href="index.html#collection">Collection</a>
       <a href="index.html#provenance">Provenance</a>
-      <a href="about.html" class="active">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
     </nav>
     <a href="contact.html" class="nav-cta">Inquire</a>
   </div>
 </header>
 
-<section class="about-hero">
-  <div class="inner about-hero-grid reveal">
-    <img src="https://images.squarespace-cdn.com/content/v1/66d53142ed0ce01b2a4d64e9/7e0bd842-523c-46b6-a231-a0f5854b32bb/150337+%281%29.png" alt="Philip Mead">
-    <div>
-      <span class="label">About Mead Americana</span>
-      <p class="quote" style="margin-top:16px;">A professional historian's eye for the objects that witnessed the Revolution.</p>
-    </div>
+<section class="contact-hero">
+  <div class="inner reveal">
+    <span class="label">Get in Touch</span>
+    <p class="quote" style="margin-top:16px;">Please get in touch — about a piece, a research question, or a consulting inquiry.</p>
   </div>
 </section>
 
-<section class="about-body">
-  <div class="inner reveal">
-    <p>Philip Mead is a professional historian with a rare combination of scholarly expertise and a lifelong instinct for uncovering the hidden stories in early American objects. He specializes in the 18th century, with a particular focus on the Revolutionary era, and brings decades of experience in identifying, researching, and authenticating historical material.</p>
-
-    <p>Philip served as the founding Chief Historian and Director of Curatorial Affairs at the Museum of the American Revolution (2014–2022), where he helped shape the museum's curatorial vision from the ground up. He developed the intellectual framework for the core exhibitions, curated five major special exhibits, and led content creation for films, digital interactives, and galleries.</p>
-
-    <p>Philip's academic foundation is rooted in years of rigorous training: he studied history at Brown University under Pulitzer Prize-winning historian Gordon S. Wood and earned his MA and PhD from Harvard University, where his research focused on the diaries of Revolutionary War soldiers. His scholarship bridges the gap between academic history and public storytelling, with a keen focus on illuminating the lives of ordinary people in extraordinary times.</p>
-
-    <p>An expert in identifying and interpreting 18th-century artifacts, Philip has a track record of significant discoveries. Among the most notable is his identification of a previously unrecognized 18th-century watercolor of George Washington's tent by Pierre Charles L'Enfant — the only known eyewitness image of the tent from the Revolutionary War period. His research and curatorial leadership turned the painting into the centerpiece of the acclaimed exhibit <em>Among His Troops</em>.</p>
-
-    <p>Philip's fascination with history began early, sparked by the personal belongings of Revolutionary soldiers. Even as a student, he scoured auctions and antique shops across New England, sharpening his eye for historical objects. That lifelong passion — combined with decades of academic and curatorial experience — continues to inform his work today, as he brings the past to life through the objects that witnessed it.</p>
-
-    <div class="credentials">
-      <span class="label">At a Glance</span>
-      <ul>
-        <li><strong>Founding Chief Historian &amp; Director of Curatorial Affairs</strong>, Museum of the American Revolution (2014–2022)</li>
-        <li><strong>PhD &amp; MA, History</strong>, Harvard University — research on the diaries of Revolutionary War soldiers</li>
-        <li><strong>BA, History</strong>, Brown University — studied under Gordon S. Wood</li>
-        <li><strong>Identified</strong> a previously unrecognized L'Enfant watercolor of George Washington's tent, later the centerpiece of <em>Among His Troops</em></li>
-      </ul>
+<section class="contact-body">
+  <div class="contact-grid reveal">
+    <div class="contact-info">
+      <div class="item">
+        <strong>Email</strong>
+        <p style="margin:0;"><a href="mailto:philipmead@meadamericana.com">philipmead@meadamericana.com</a></p>
+      </div>
+      <div class="item">
+        <strong>Phone</strong>
+        <p style="margin:0;">(617) 372-0299</p>
+      </div>
+      <div class="item">
+        <strong>Location</strong>
+        <p style="margin:0;">Ambler, Pennsylvania — visits by appointment.</p>
+      </div>
+      <div class="item">
+        <strong>Follow</strong>
+        <p style="margin:0;">
+          <a href="https://www.instagram.com/philip_mead" target="_blank">Instagram</a> &middot;
+          <a href="https://www.facebook.com/philip.mead.302331" target="_blank">Facebook</a>
+        </p>
+      </div>
     </div>
+
+    <form class="contact-form" id="contact-form">
+      <input type="text" name="company" class="hp-field" tabindex="-1" autocomplete="off">
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required maxlength="200">
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required maxlength="200">
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required maxlength="5000"></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send Message</button>
+      <p class="form-status" id="form-status"></p>
+    </form>
   </div>
 </section>
 
@@ -257,6 +285,46 @@
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold:0.15});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  const btn = form.querySelector('.submit-btn');
+
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    btn.disabled = true;
+    status.textContent = 'Sending…';
+    status.className = 'form-status';
+
+    const payload = {
+      name: form.name.value,
+      email: form.email.value,
+      message: form.message.value,
+      company: form.company.value, // honeypot
+    };
+
+    try{
+      const resp = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await resp.json();
+
+      if(!resp.ok){
+        throw new Error(data.error || 'Something went wrong.');
+      }
+
+      status.textContent = 'Thank you — your message has been sent. I\'ll be in touch soon.';
+      status.className = 'form-status ok';
+      form.reset();
+    }catch(err){
+      status.textContent = err.message || 'Something went wrong. Please email directly instead.';
+      status.className = 'form-status err';
+    }finally{
+      btn.disabled = false;
+    }
+  });
 </script>
 </body>
 </html>

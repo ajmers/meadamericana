@@ -5,5 +5,8 @@
   "description": "Cached Airtable-backed catalog API for meadamericana.com",
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "resend": "^6.19.0"
   }
 }
