@@ -450,7 +450,9 @@
       const resp = await fetch('/api/catalog');
       if(!resp.ok) throw new Error('Catalog request failed: ' + resp.status);
       const data = await resp.json();
-      const items = data.items || [];
+      // Belt-and-suspenders: only show items explicitly flagged to publish,
+      // even if the backend/cache serves something it shouldn't.
+      const items = (data.items || []).filter(item => item.publish === true);
 
       if(items.length === 0){
         grid.innerHTML = '<p class="catalog-status">No pieces listed at the moment — check back soon.</p>';
