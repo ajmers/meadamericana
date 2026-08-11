@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mead Americana — Fine Antiques &amp; Historical Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --parchment:#E7DCC0;
+    --paper:#F1E8D0;
+    --paper-dark:#DCCEAA;
+    --ink:#241D14;
+    --ink-soft:#5A4E3A;
+    --brass:#8C6D33;
+    --brass-light:#B79A5C;
+    --oxblood:#5B211B;
+    --indigo:#33465A;
+    --line:rgba(36,29,20,0.18);
+    --shadow: 0 10px 30px rgba(36,29,20,0.18);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    background-image:
+      radial-gradient(rgba(36,29,20,0.035) 1px, transparent 1px);
+    background-size: 3px 3px;
+    color:var(--ink);
+    font-family:'Source Serif 4', serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+
+  .label{
+    font-family:'Courier Prime', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:0.72rem;
+    color:var(--brass);
+  }
+
+  /* NAV */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:rgba(231,220,192,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-wrap{
+    max-width:1180px; margin:0 auto; padding:18px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.25rem;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    display:flex; align-items:center; gap:10px;
+  }
+  .brand .mark{
+    width:30px;height:30px;border-radius:50%;
+    border:1.5px solid var(--brass);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif; font-size:0.85rem; color:var(--oxblood);
+  }
+  nav.links{ display:flex; gap:34px; }
+  nav.links a{
+    text-decoration:none;
+    font-family:'Courier Prime', monospace;
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--ink-soft);
+    padding-bottom:4px;
+    border-bottom:1px solid transparent;
+    transition:border-color .2s, color .2s;
+  }
+  nav.links a:hover{ color:var(--oxblood); border-color:var(--oxblood); }
+  .nav-cta{
+    font-family:'Courier Prime', monospace;
+    font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em;
+    border:1px solid var(--ink); padding:8px 14px; text-decoration:none;
+    color:var(--ink); transition:all .2s;
+  }
+  .nav-cta:hover{ background:var(--ink); color:var(--parchment); }
+
+  /* HERO */
+  .hero{
+    position:relative;
+    min-height:86vh;
+    display:flex; align-items:flex-end;
+    overflow:hidden;
+  }
+  .hero img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    filter: sepia(18%) saturate(85%) brightness(0.62);
+  }
+  .hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(36,29,20,0.15) 0%, rgba(36,29,20,0.15) 40%, rgba(24,19,13,0.88) 100%);
+  }
+  .hero-content{
+    position:relative; z-index:2;
+    max-width:1180px; margin:0 auto; padding:0 28px 72px;
+    width:100%;
+    color:var(--parchment);
+  }
+  .hero-eyebrow{
+    font-family:'Courier Prime', monospace;
+    letter-spacing:0.22em; text-transform:uppercase;
+    font-size:0.75rem; color:var(--brass-light);
+    display:flex; align-items:center; gap:14px; margin-bottom:22px;
+  }
+  .hero-eyebrow::before{ content:""; width:40px; height:1px; background:var(--brass-light); }
+  .hero h1{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(2.6rem, 6vw, 4.6rem);
+    line-height:1.04;
+    margin:0 0 20px;
+    max-width:11ch;
+  }
+  .hero h1 em{ font-style:italic; font-weight:500; color:var(--brass-light); }
+  .hero p.sub{
+    font-size:1.08rem;
+    line-height:1.6;
+    max-width:46ch;
+    color:rgba(231,220,192,0.86);
+    margin:0 0 34px;
+  }
+  .hero-meta{
+    display:flex; gap:36px; flex-wrap:wrap;
+    font-family:'Courier Prime', monospace;
+    font-size:0.78rem; letter-spacing:0.04em;
+    color:var(--brass-light);
+    border-top:1px solid rgba(183,154,92,0.35);
+    padding-top:18px;
+  }
+
+  /* SECTION shell */
+  section{ padding:96px 28px; }
+  .inner{ max-width:1180px; margin:0 auto; }
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    gap:24px; margin-bottom:56px; flex-wrap:wrap;
+    border-bottom:1px solid var(--line);
+    padding-bottom:22px;
+  }
+  .section-head h2{
+    font-family:'Fraunces', serif; font-weight:500;
+    font-size:clamp(1.8rem, 3vw, 2.5rem);
+    margin:6px 0 0;
+  }
+
+  /* ABOUT teaser */
+  .about-grid{
+    display:grid; grid-template-columns: 0.85fr 1.15fr; gap:64px; align-items:center;
+  }
+  .about-grid .quote{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:500;
+    font-size:1.5rem; line-height:1.5; color:var(--ink);
+    border-left:2px solid var(--oxblood); padding-left:26px;
+  }
+  .about-grid p{ line-height:1.75; color:var(--ink-soft); font-size:1.02rem; }
+  .about-grid .sig{
+    margin-top:26px; font-family:'Courier Prime', monospace;
+    font-size:0.78rem; letter-spacing:0.06em; color:var(--brass);
+  }
+
+  /* CATALOG GRID — accession cards */
+  .catalog{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:44px 36px;
+  }
+  .card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    box-shadow:var(--shadow);
+    position:relative;
+    padding:0 0 22px;
+    transition: transform .35s ease, box-shadow .35s ease;
+  }
+  .card:nth-child(2n){ transform:rotate(-0.6deg); }
+  .card:nth-child(3n){ transform:rotate(0.5deg); }
+  .card:hover{ transform:rotate(0deg) translateY(-6px); box-shadow:0 18px 40px rgba(36,29,20,0.24); }
+  .card .tag{
+    position:absolute; top:-14px; left:22px;
+    background:var(--oxblood); color:var(--parchment);
+    font-family:'Courier Prime', monospace; font-size:0.68rem;
+    letter-spacing:0.08em; text-transform:uppercase;
+    padding:6px 10px; box-shadow:0 4px 10px rgba(0,0,0,0.25);
+  }
+  .card .tag::after{
+    content:""; position:absolute; left:10px; bottom:-6px;
+    width:0; height:0;
+    border-left:5px solid transparent; border-right:5px solid transparent;
+    border-top:6px solid #3c1512;
+  }
+  .card .imgwrap{
+    padding:26px 26px 0; background:
+      linear-gradient(rgba(36,29,20,0.02), rgba(36,29,20,0.02));
+  }
+  .card .imgwrap-inner{
+    border:1px solid var(--line);
+    padding:18px;
+    background:var(--parchment);
+    display:flex; align-items:center; justify-content:center;
+    min-height:220px;
+  }
+  .card img{ max-height:200px; width:auto; margin:0 auto; mix-blend-mode:multiply; }
+  .card .body{ padding:20px 26px 0; }
+  .card .meta-row{
+    display:flex; justify-content:space-between; align-items:center;
+    font-family:'Courier Prime', monospace; font-size:0.7rem;
+    color:var(--brass); letter-spacing:0.06em; text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .card h3{
+    font-family:'Fraunces', serif; font-weight:500; font-size:1.18rem;
+    line-height:1.35; margin:0 0 10px;
+  }
+  .card p.desc{
+    color:var(--ink-soft); font-size:0.92rem; line-height:1.6; margin:0 0 16px;
+  }
+  .card .foot{
+    display:flex; justify-content:space-between; align-items:center;
+    padding-top:14px; border-top:1px dashed var(--line);
+  }
+  .card .price{ font-family:'Fraunces', serif; font-weight:600; font-size:1.05rem; }
+  .card .sold{ font-family:'Courier Prime', monospace; font-size:0.72rem; color:var(--oxblood); letter-spacing:0.06em; text-transform:uppercase;}
+  .card a.view{
+    font-family:'Courier Prime', monospace; font-size:0.72rem;
+    text-transform:uppercase; letter-spacing:0.06em; text-decoration:none;
+    color:var(--indigo); border-bottom:1px solid var(--indigo);
+  }
+
+  /* FEATURED PROVENANCE STRIP */
+  .provenance{
+    background:var(--ink); color:var(--parchment);
+  }
+  .provenance .inner{ display:grid; grid-template-columns: 1fr 1fr; gap:64px; align-items:center; }
+  .provenance .label{ color:var(--brass-light); }
+  .provenance h2{
+    font-family:'Fraunces', serif; font-weight:500; font-style:italic;
+    font-size:clamp(1.6rem,2.6vw,2.2rem); line-height:1.4; margin:14px 0 24px;
+    color:var(--parchment);
+  }
+  .provenance p{ color:rgba(231,220,192,0.78); line-height:1.75; }
+  .provenance .horn-frame{
+    border:1px solid rgba(183,154,92,0.4);
+    padding:30px;
+    display:flex; align-items:center; justify-content:center;
+    background:rgba(231,220,192,0.03);
+  }
+  .provenance img{ max-height:340px; width:auto; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5)); }
+
+  /* CONTACT / FOOTER */
+  footer{
+    background:var(--paper); border-top:1px solid var(--line);
+    padding:80px 28px 40px;
+  }
+  .foot-grid{
+    max-width:1180px; margin:0 auto;
+    display:grid; grid-template-columns: 1.2fr 1fr 1fr; gap:48px;
+    padding-bottom:50px; border-bottom:1px solid var(--line);
+  }
+  .foot-grid h3{ font-family:'Fraunces', serif; font-weight:500; font-size:1.4rem; margin:0 0 14px; }
+  .foot-grid p{ color:var(--ink-soft); line-height:1.7; margin:0 0 8px; font-size:0.95rem; }
+  .foot-grid a{ text-decoration:none; color:var(--indigo); }
+  .foot-col .label{ margin-bottom:12px; display:block; }
+  .foot-bottom{
+    max-width:1180px; margin:26px auto 0; display:flex; justify-content:space-between;
+    font-family:'Courier Prime', monospace; font-size:0.72rem; color:var(--ink-soft);
+    letter-spacing:0.04em; flex-wrap:wrap; gap:10px;
+  }
+
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  @media (max-width:900px){
+    nav.links{ display:none; }
+    .about-grid{ grid-template-columns:1fr; gap:36px; }
+    .catalog{ grid-template-columns:1fr; }
+    .provenance .inner{ grid-template-columns:1fr; }
+    .foot-grid{ grid-template-columns:1fr; gap:32px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-wrap">
+    <a href="#" class="brand">
+      <span class="mark">M</span>
+      MEAD AMERICANA
+    </a>
+    <nav class="links">
+      <a href="#collection">Collection</a>
+      <a href="#provenance">Provenance</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Inquire</a>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="https://images.squarespace-cdn.com/content/v1/66d53142ed0ce01b2a4d64e9/e59cc863-551b-4de6-a0c0-1fdb69b31994/IMG_20190304_190112.jpg" alt="">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Fine Antiques &amp; Historical Consulting</div>
+    <h1>Three centuries of <em>American</em> material culture</h1>
+    <p class="sub">Researched, authenticated, and catalogued piece by piece — arms, textiles, and domestic objects from the Colonial and Revolutionary eras, sourced and sold with their full documented history.</p>
+    <div class="hero-meta">
+      <span>Ambler, Pennsylvania</span>
+      <span>Visits by Appointment</span>
+      <span>(617) 372-0299</span>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="inner about-grid reveal">
+    <div class="quote">"Every object here carries a name, a date, and a story we can prove."</div>
+    <div>
+      <p>Mead Americana deals in Colonial and Revolutionary-era Americana — militaria, textiles, and domestic objects researched to the level of a museum catalog entry. Each piece is authenticated and documented with primary-source history before it's offered for sale, from regimental muster rolls to family provenance passed down for generations.</p>
+      <p>Beyond the collection, Philip Mead offers historical consulting for collectors, museums, and institutions — appraisal, attribution research, and archival sourcing.</p>
+      <div class="sig">— Philip Mead, Proprietor</div>
+    </div>
+  </div>
+</section>
+
+<section id="collection">
+  <div class="inner">
+    <div class="section-head reveal">
+      <div>
+        <span class="label">The Collection — Selected Pieces</span>
+        <h2>Currently Available</h2>
+      </div>
+      <a href="#" class="nav-cta">View Full Catalog</a>
+    </div>
+
+    <div class="catalog">
+
+      <div class="card reveal">
+        <span class="tag">Lot 014 — Arms</span>
+        <div class="imgwrap"><div class="imgwrap-inner">
+          <img src="https://images.squarespace-cdn.com/content/v1/66d53142ed0ce01b2a4d64e9/a78e8203-e9e7-403d-b279-49c943c5b51e/sword.png" alt="New England lion head horseman sword">
+        </div></div>
+        <div class="body">
+          <div class="meta-row"><span>Revolutionary Era</span><span>New England</span></div>
+          <h3>New England Lion Head ("Monkey Head") Horseman Sword</h3>
+          <p class="desc">One of three nearly identical examples found in an attic in Elliot, Maine. Published in Guthman's Colonial Swords of New England.</p>
+          <div class="foot">
+            <span class="price">$7,500</span>
+            <a href="https://www.meadamericana.com/store/p/sword-with-monkey-pommel" class="view">Full Entry →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <span class="tag">Lot 022 — Textile</span>
+        <div class="imgwrap"><div class="imgwrap-inner">
+          <img src="https://images.squarespace-cdn.com/content/v1/66d53142ed0ce01b2a4d64e9/12c4854d-bcee-4d09-a423-2d480e931aad/coat.png" alt="Green man's coat, circa 1770-1790">
+        </div></div>
+        <div class="body">
+          <div class="meta-row"><span>Circa 1770–1790</span><span>Middling Sort</span></div>
+          <h3>Green Man's Coat, Altered Collar</h3>
+          <p class="desc">An extremely rare "middling sort" coat with visible period alteration — an 1770s tab collar converted to rise-and-fall in the 1780s–90s.</p>
+          <div class="foot">
+            <span class="price">$4,000</span>
+            <a href="https://www.meadamericana.com/store/p/powderhorn" class="view">Full Entry →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <span class="tag">Lot 031 — Glass</span>
+        <div class="imgwrap"><div class="imgwrap-inner">
+          <img src="https://images.squarespace-cdn.com/content/v1/66d53142ed0ce01b2a4d64e9/ed39ef90-d147-4aee-a664-f63a62febbbd/20250715_003953+%281%29.jpg" alt="T. Shorland sealed bottle, 1772">
+        </div></div>
+        <div class="body">
+          <div class="meta-row"><span>Dated 1772</span><span>England</span></div>
+          <h3>English Bottle, Seal for "T. Shorland 1772"</h3>
+          <p class="desc">Shorland's identity remains unrecorded — unlisted in Burton's three-volume survey of sealed bottles and the families who owned them.</p>
+          <div class="foot">
+            <span class="price">$1,500</span>
+            <a href="https://www.meadamericana.com/store/p/t-shorland-bottle-1772" class="view">Full Entry →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <span class="tag">Lot 007 — Field Gear</span>
+        <div class="imgwrap"><div class="imgwrap-inner">
+          <img src="https://images.squarespace-cdn.com/content/v1/66d53142ed0ce01b2a4d64e9/b225e499-851c-4f56-9074-0e5e9a24ae16/Canteen+-transparent.png" alt="Revolutionary War cheesebox canteen">
+        </div></div>
+        <div class="body">
+          <div class="meta-row"><span>Revolutionary Era</span><span>Hingham, MA</span></div>
+          <h3>Revolutionary War Cheesebox Canteen</h3>
+          <p class="desc">Single-stave canteen with large rose-head rivets and the period initials "MW" scratched into one side. 7" dia., 3.5" width.</p>
+          <div class="foot">
+            <span class="sold">Sold</span>
+            <a href="https://www.meadamericana.com/store/p/canteen" class="view">Full Entry →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="provenance" class="provenance">
+  <div class="inner reveal">
+    <div class="horn-frame">
+      <img src="https://images.squarespace-cdn.com/content/v1/66d53142ed0ce01b2a4d64e9/bcbc3ebb-6fb8-4743-809d-b034b2f6967c/horn3.png" alt="Dunham Pettit powder horn, 1761">
+    </div>
+    <div>
+      <span class="label">Featured Provenance — Lot 002</span>
+      <h2>"Steal not this horn for fear of shame, for on it is the owner's name."</h2>
+      <p>Carved at Crown Point on 19 October 1761, this powder horn belonged to eight-year-old Dunham Pettit, gift of his brother John, a private in the Second Connecticut Regiment. Its carver is linked to only one other known horn — made for a Black soldier, Prince Negro, whose free status this association helps to confirm.</p>
+      <p style="margin-top:18px;"><a href="https://www.meadamericana.com/store/p/french-and-indian-war-powder-horn-of-dunham-pettit-dated-at-crown-point-19-october-1761" class="nav-cta" style="border-color:var(--brass-light); color:var(--parchment);">Read the Full Research →</a></p>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="foot-grid">
+    <div>
+      <h3>Mead Americana</h3>
+      <p>Fine antiques and historical consulting.<br>Ambler, Pennsylvania — visits by appointment.</p>
+    </div>
+    <div class="foot-col">
+      <span class="label">Contact</span>
+      <p><a href="mailto:philipmead@meadamericana.com">philipmead@meadamericana.com</a></p>
+      <p>(617) 372-0299</p>
+    </div>
+    <div class="foot-col">
+      <span class="label">Follow</span>
+      <p><a href="https://www.instagram.com/philip_mead" target="_blank">Instagram</a></p>
+      <p><a href="https://www.facebook.com/philip.mead.302331" target="_blank">Facebook</a></p>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© Mead Americana</span>
+    <span>Est. Ambler, PA</span>
+  </div>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.15});
+  els.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "name": "mead-americana-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cached Airtable-backed catalog API for meadamericana.com",
+  "engines": {
+    "node": ">=18"
+  }
+}
