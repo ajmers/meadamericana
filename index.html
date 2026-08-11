@@ -62,11 +62,9 @@
     text-decoration:none;
     display:flex; align-items:center; gap:10px;
   }
-  .brand .mark{
-    width:30px;height:30px;border-radius:50%;
-    border:1.5px solid var(--brass);
-    display:flex;align-items:center;justify-content:center;
-    font-family:'Fraunces',serif; font-size:0.85rem; color:var(--oxblood);
+  .brand-logo{
+    height:44px; width:auto;
+    mix-blend-mode:multiply;
   }
   nav.links{ display:flex; gap:34px; }
   nav.links a{
@@ -284,6 +282,11 @@
   .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
   .reveal.in{ opacity:1; transform:translateY(0); }
 
+  .catalog-status{
+    font-family:'Courier Prime', monospace; font-size:0.85rem;
+    color:var(--ink-soft); grid-column:1/-1; padding:20px 0;
+  }
+
   @media (max-width:900px){
     nav.links{ display:none; }
     .about-grid{ grid-template-columns:1fr; gap:36px; }
@@ -298,8 +301,7 @@
 <header class="site">
   <div class="nav-wrap">
     <a href="#" class="brand">
-      <span class="mark">M</span>
-      MEAD AMERICANA
+      <img class="brand-logo" src="https://images.squarespace-cdn.com/content/v1/66d53142ed0ce01b2a4d64e9/df248cca-1649-4631-a333-53d471be3985/MEAD+Americana+Logo.png?format=1500w" alt="Mead Americana">
     </a>
     <nav class="links">
       <a href="#collection">Collection</a>
@@ -315,8 +317,8 @@
   <img src="https://images.squarespace-cdn.com/content/v1/66d53142ed0ce01b2a4d64e9/e59cc863-551b-4de6-a0c0-1fdb69b31994/IMG_20190304_190112.jpg" alt="">
   <div class="hero-content">
     <div class="hero-eyebrow">Fine Antiques &amp; Historical Consulting</div>
-    <h1>Three centuries of <em>American</em> material culture</h1>
-    <p class="sub">Researched, authenticated, and catalogued piece by piece — arms, textiles, and domestic objects from the Colonial and Revolutionary eras, sourced and sold with their full documented history.</p>
+    <h1>Colonial &amp; Revolutionary <em>American</em> antiques</h1>
+    <p class="sub">I research the history behind each piece as thoroughly as I can before it goes up for sale — who owned it, when, and how we know. Arms, textiles, and everyday objects from the Colonial and Revolutionary eras.</p>
     <div class="hero-meta">
       <span>Ambler, Pennsylvania</span>
       <span>Visits by Appointment</span>
@@ -329,8 +331,8 @@
   <div class="inner about-grid reveal">
     <div class="quote">"Every object here carries a name, a date, and a story we can prove."</div>
     <div>
-      <p>Mead Americana deals in Colonial and Revolutionary-era Americana — militaria, textiles, and domestic objects researched to the level of a museum catalog entry. Each piece is authenticated and documented with primary-source history before it's offered for sale, from regimental muster rolls to family provenance passed down for generations.</p>
-      <p>Beyond the collection, Philip Mead offers historical consulting for collectors, museums, and institutions — appraisal, attribution research, and archival sourcing.</p>
+      <p>I deal in Colonial and Revolutionary-era Americana — militaria, textiles, and everyday objects — and I research each one the way you'd expect from a museum catalog, not a shop listing. That means chasing down the regimental muster roll, the family letter, the estate inventory, whatever's out there, before a piece is ever offered for sale.</p>
+      <p>I also take on historical consulting work for collectors, museums, and institutions — appraisal, attribution research, and digging through the archives.</p>
       <div class="sig">— Philip Mead, Proprietor</div>
     </div>
   </div>
@@ -346,72 +348,8 @@
       <a href="#" class="nav-cta">View Full Catalog</a>
     </div>
 
-    <div class="catalog">
-
-      <div class="card reveal">
-        <span class="tag">Lot 014 — Arms</span>
-        <div class="imgwrap"><div class="imgwrap-inner">
-          <img src="https://images.squarespace-cdn.com/content/v1/66d53142ed0ce01b2a4d64e9/a78e8203-e9e7-403d-b279-49c943c5b51e/sword.png" alt="New England lion head horseman sword">
-        </div></div>
-        <div class="body">
-          <div class="meta-row"><span>Revolutionary Era</span><span>New England</span></div>
-          <h3>New England Lion Head ("Monkey Head") Horseman Sword</h3>
-          <p class="desc">One of three nearly identical examples found in an attic in Elliot, Maine. Published in Guthman's Colonial Swords of New England.</p>
-          <div class="foot">
-            <span class="price">$7,500</span>
-            <a href="https://www.meadamericana.com/store/p/sword-with-monkey-pommel" class="view">Full Entry →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="card reveal">
-        <span class="tag">Lot 022 — Textile</span>
-        <div class="imgwrap"><div class="imgwrap-inner">
-          <img src="https://images.squarespace-cdn.com/content/v1/66d53142ed0ce01b2a4d64e9/12c4854d-bcee-4d09-a423-2d480e931aad/coat.png" alt="Green man's coat, circa 1770-1790">
-        </div></div>
-        <div class="body">
-          <div class="meta-row"><span>Circa 1770–1790</span><span>Middling Sort</span></div>
-          <h3>Green Man's Coat, Altered Collar</h3>
-          <p class="desc">An extremely rare "middling sort" coat with visible period alteration — an 1770s tab collar converted to rise-and-fall in the 1780s–90s.</p>
-          <div class="foot">
-            <span class="price">$4,000</span>
-            <a href="https://www.meadamericana.com/store/p/powderhorn" class="view">Full Entry →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="card reveal">
-        <span class="tag">Lot 031 — Glass</span>
-        <div class="imgwrap"><div class="imgwrap-inner">
-          <img src="https://images.squarespace-cdn.com/content/v1/66d53142ed0ce01b2a4d64e9/ed39ef90-d147-4aee-a664-f63a62febbbd/20250715_003953+%281%29.jpg" alt="T. Shorland sealed bottle, 1772">
-        </div></div>
-        <div class="body">
-          <div class="meta-row"><span>Dated 1772</span><span>England</span></div>
-          <h3>English Bottle, Seal for "T. Shorland 1772"</h3>
-          <p class="desc">Shorland's identity remains unrecorded — unlisted in Burton's three-volume survey of sealed bottles and the families who owned them.</p>
-          <div class="foot">
-            <span class="price">$1,500</span>
-            <a href="https://www.meadamericana.com/store/p/t-shorland-bottle-1772" class="view">Full Entry →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="card reveal">
-        <span class="tag">Lot 007 — Field Gear</span>
-        <div class="imgwrap"><div class="imgwrap-inner">
-          <img src="https://images.squarespace-cdn.com/content/v1/66d53142ed0ce01b2a4d64e9/b225e499-851c-4f56-9074-0e5e9a24ae16/Canteen+-transparent.png" alt="Revolutionary War cheesebox canteen">
-        </div></div>
-        <div class="body">
-          <div class="meta-row"><span>Revolutionary Era</span><span>Hingham, MA</span></div>
-          <h3>Revolutionary War Cheesebox Canteen</h3>
-          <p class="desc">Single-stave canteen with large rose-head rivets and the period initials "MW" scratched into one side. 7" dia., 3.5" width.</p>
-          <div class="foot">
-            <span class="sold">Sold</span>
-            <a href="https://www.meadamericana.com/store/p/canteen" class="view">Full Entry →</a>
-          </div>
-        </div>
-      </div>
-
+    <div class="catalog" id="catalog-grid">
+      <p class="catalog-status">Loading the collection…</p>
     </div>
   </div>
 </section>
@@ -425,7 +363,7 @@
       <span class="label">Featured Provenance — Lot 002</span>
       <h2>"Steal not this horn for fear of shame, for on it is the owner's name."</h2>
       <p>Carved at Crown Point on 19 October 1761, this powder horn belonged to eight-year-old Dunham Pettit, gift of his brother John, a private in the Second Connecticut Regiment. Its carver is linked to only one other known horn — made for a Black soldier, Prince Negro, whose free status this association helps to confirm.</p>
-      <p style="margin-top:18px;"><a href="https://www.meadamericana.com/store/p/french-and-indian-war-powder-horn-of-dunham-pettit-dated-at-crown-point-19-october-1761" class="nav-cta" style="border-color:var(--brass-light); color:var(--parchment);">Read the Full Research →</a></p>
+      <p style="margin-top:18px;"><a href="https://www.meadamericana.com/store/p/french-and-indian-war-powder-horn-of-dunham-pettit-dated-at-crown-point-19-october-1761" class="nav-cta" style="border-color:var(--brass-light); color:var(--parchment);">Read the Full Story →</a></p>
     </div>
   </div>
 </section>
@@ -454,11 +392,79 @@
 </footer>
 
 <script>
-  const els = document.querySelectorAll('.reveal');
+  // Scroll-reveal — re-run any time new .reveal elements are added to the page
+  // (the catalog cards get injected after the initial page load).
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold:0.15});
-  els.forEach(el=>io.observe(el));
+  function observeReveals(root=document){
+    root.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  }
+  observeReveals();
+
+  // Very small subset of Markdown -> HTML, just enough for what Airtable's
+  // rich text field actually produces (bold, italic, line breaks, paragraphs).
+  function mdToHtml(md){
+    if(!md) return '';
+    const esc = md
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    const withInline = esc
+      .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+      .replace(/\*(.+?)\*/g,'<em>$1</em>');
+    return withInline
+      .split(/\n\s*\n/)
+      .map(p => `<p>${p.trim().replace(/\n/g,'<br>')}</p>`)
+      .join('');
+  }
+
+  function formatPrice(price){
+    if(price == null) return null;
+    return '$' + price.toLocaleString('en-US');
+  }
+
+  function cardHTML(item){
+    const lotTag = item.lotNumber != null ? `Lot ${String(item.lotNumber).padStart(3,'0')}` : 'Lot —';
+    const priceHTML = item.sold
+      ? `<span class="sold">Sold</span>`
+      : `<span class="price">${formatPrice(item.price) ?? 'Inquire'}</span>`;
+    const img = item.image
+      ? `<img src="${item.image}" alt="${(item.title||'').replace(/"/g,'&quot;')}">`
+      : '';
+
+    return `
+      <div class="card reveal">
+        <span class="tag">${lotTag}</span>
+        <div class="imgwrap"><div class="imgwrap-inner">${img}</div></div>
+        <div class="body">
+          <h3>${item.title}</h3>
+          <div class="desc">${mdToHtml(item.description)}</div>
+          <div class="foot">${priceHTML}</div>
+        </div>
+      </div>`;
+  }
+
+  async function loadCatalog(){
+    const grid = document.getElementById('catalog-grid');
+    try{
+      const resp = await fetch('/api/catalog');
+      if(!resp.ok) throw new Error('Catalog request failed: ' + resp.status);
+      const data = await resp.json();
+      const items = data.items || [];
+
+      if(items.length === 0){
+        grid.innerHTML = '<p class="catalog-status">No pieces listed at the moment — check back soon.</p>';
+        return;
+      }
+
+      grid.innerHTML = items.map(cardHTML).join('');
+      observeReveals(grid);
+    }catch(err){
+      console.error('Failed to load catalog:', err);
+      grid.innerHTML = '<p class="catalog-status">The collection couldn\'t be loaded right now. Please refresh, or get in touch directly.</p>';
+    }
+  }
+
+  loadCatalog();
 </script>
 
 </body>
