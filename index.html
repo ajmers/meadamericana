@@ -221,10 +221,13 @@
     color:var(--brass); letter-spacing:0.06em; text-transform:uppercase;
     margin-bottom:10px;
   }
+  .card .imgwrap a{ display:block; }
   .card h3{
     font-family:'Fraunces', serif; font-weight:500; font-size:1.18rem;
     line-height:1.35; margin:0 0 10px;
   }
+  .card h3 a{ text-decoration:none; }
+  .card h3 a:hover{ color:var(--oxblood); }
   .card p.desc{
     color:var(--ink-soft); font-size:0.92rem; line-height:1.6; margin:0 0 16px;
   }
@@ -241,24 +244,24 @@
   }
 
   /* FEATURED PROVENANCE STRIP */
-  .provenance{
+  .features{
     background:var(--ink); color:var(--parchment);
   }
-  .provenance .inner{ display:grid; grid-template-columns: 1fr 1fr; gap:64px; align-items:center; }
-  .provenance .label{ color:var(--brass-light); }
-  .provenance h2{
+  .features .inner{ display:grid; grid-template-columns: 1fr 1fr; gap:64px; align-items:center; }
+  .features .label{ color:var(--brass-light); }
+  .features h2{
     font-family:'Fraunces', serif; font-weight:500; font-style:italic;
     font-size:clamp(1.6rem,2.6vw,2.2rem); line-height:1.4; margin:14px 0 24px;
     color:var(--parchment);
   }
-  .provenance p{ color:rgba(231,220,192,0.78); line-height:1.75; }
-  .provenance .horn-frame{
+  .features p{ color:rgba(231,220,192,0.78); line-height:1.75; }
+  .features .horn-frame{
     border:1px solid rgba(183,154,92,0.4);
     padding:30px;
     display:flex; align-items:center; justify-content:center;
     background:rgba(231,220,192,0.03);
   }
-  .provenance img{ max-height:340px; width:auto; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5)); }
+  .features img{ max-height:340px; width:auto; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5)); }
 
   /* CONTACT / FOOTER */
   footer{
@@ -292,7 +295,7 @@
     nav.links{ display:none; }
     .about-grid{ grid-template-columns:1fr; gap:36px; }
     .catalog{ grid-template-columns:1fr; }
-    .provenance .inner{ grid-template-columns:1fr; }
+    .features .inner{ grid-template-columns:1fr; }
     .foot-grid{ grid-template-columns:1fr; gap:32px; }
   }
 </style>
@@ -306,7 +309,7 @@
     </a>
     <nav class="links">
       <a href="#collection">Collection</a>
-      <a href="#provenance">Provenance</a>
+      <a href="#features">Features</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -356,13 +359,13 @@
   </div>
 </section>
 
-<section id="provenance" class="provenance">
+<section id="features" class="features">
   <div class="inner reveal">
     <div class="horn-frame">
       <img src="https://images.squarespace-cdn.com/content/v1/66d53142ed0ce01b2a4d64e9/bcbc3ebb-6fb8-4743-809d-b034b2f6967c/horn3.png" alt="Dunham Pettit powder horn, 1761">
     </div>
     <div>
-      <span class="label">Featured Provenance — Lot 002</span>
+      <span class="label">Featured — Lot 002</span>
       <h2>"Steal not this horn for fear of shame, for on it is the owner's name."</h2>
       <p>Carved at Crown Point on 19 October 1761, this powder horn belonged to eight-year-old Dunham Pettit, gift of his brother John, a private in the Second Connecticut Regiment. Its carver is linked to only one other known horn — made for a Black soldier, Prince Negro, whose free status this association helps to confirm.</p>
       <p style="margin-top:18px;"><a href="https://www.meadamericana.com/store/p/french-and-indian-war-powder-horn-of-dunham-pettit-dated-at-crown-point-19-october-1761" class="nav-cta" style="border-color:var(--brass-light); color:var(--parchment);">Read the Full Story →</a></p>
@@ -424,6 +427,17 @@
     return '$' + price.toLocaleString('en-US');
   }
 
+  // Short plain-text teaser for the gallery card — full description lives
+  // on the item's own page.
+  function excerpt(md, maxLen=140){
+    if(!md) return '';
+    const plain = md
+      .replace(/\*\*(.+?)\*\*/g,'$1').replace(/\*(.+?)\*/g,'$1')
+      .replace(/\s+/g,' ').trim();
+    if(plain.length <= maxLen) return plain;
+    return plain.slice(0, maxLen).replace(/\s+\S*$/, '') + '…';
+  }
+
   function cardHTML(item){
     const lotTag = item.lotNumber != null ? `Lot ${String(item.lotNumber).padStart(3,'0')}` : 'Lot —';
     const priceHTML = item.sold
@@ -432,15 +446,19 @@
     const img = item.image
       ? `<img src="${item.image}" alt="${(item.title||'').replace(/"/g,'&quot;')}">`
       : '';
+    const href = `item.html?id=${encodeURIComponent(item.id)}`;
 
     return `
       <div class="card reveal">
         <span class="tag">${lotTag}</span>
-        <div class="imgwrap"><div class="imgwrap-inner">${img}</div></div>
+        <a href="${href}"><div class="imgwrap"><div class="imgwrap-inner">${img}</div></div></a>
         <div class="body">
-          <h3>${item.title}</h3>
-          <div class="desc">${mdToHtml(item.description)}</div>
-          <div class="foot">${priceHTML}</div>
+          <h3><a href="${href}">${item.title}</a></h3>
+          <p class="desc">${excerpt(item.description)}</p>
+          <div class="foot">
+            ${priceHTML}
+            <a href="${href}" class="view">View Details →</a>
+          </div>
         </div>
       </div>`;
   }

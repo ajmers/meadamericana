@@ -95,41 +95,36 @@
   /* ABOUT PAGE HERO */
   .about-hero{
     padding:72px 28px 0;
+    text-align:center;
   }
-  .about-hero .inner{ max-width:1180px; }
-  .about-hero-grid{
-    display:grid; grid-template-columns: 0.85fr 1.15fr; gap:64px; align-items:center;
-  }
-  .about-hero-grid img{
-    width:100%; border:1px solid var(--line); box-shadow:var(--shadow);
-  }
+  .about-hero .inner{ max-width:720px; }
   .about-hero .quote{
     font-family:'Fraunces', serif; font-style:italic; font-weight:500;
     font-size:clamp(1.6rem, 3.2vw, 2.3rem); line-height:1.5; color:var(--ink);
-    border-left:2px solid var(--oxblood); padding-left:28px;
     margin:0 0 20px;
   }
   .about-hero .sig{
     font-family:'Courier Prime', monospace;
     font-size:0.78rem; letter-spacing:0.06em; color:var(--brass);
-    padding-left:30px;
   }
 
   /* ABOUT BODY */
   .about-body{ padding-top:56px; }
-  .about-body .inner{
-    max-width:900px;
-    display:grid; gap:26px;
-  }
-  .about-body p{ line-height:1.85; color:var(--ink-soft); font-size:1.06rem; margin:0; }
+  .about-body .inner{ max-width:900px; }
+  .about-body p{ line-height:1.85; color:var(--ink-soft); font-size:1.06rem; margin:0 0 26px; }
   .about-body h2{
     font-family:'Fraunces', serif; font-weight:500;
     font-size:clamp(1.4rem, 2.4vw, 1.8rem);
     margin:18px 0 0;
     color:var(--ink);
   }
+  .about-portrait{
+    float:left; width:380px; margin:4px 36px 20px 0;
+    border:1px solid var(--line); box-shadow:var(--shadow);
+  }
 
   .credentials{
+    clear:left;
     margin-top:20px;
     padding:34px 36px;
     background:var(--paper);
@@ -174,7 +169,7 @@
   @media (max-width:900px){
     nav.links{ display:none; }
     .foot-grid{ grid-template-columns:1fr; gap:32px; }
-    .about-hero-grid{ grid-template-columns:1fr; gap:32px; }
+    .about-portrait{ float:none; width:100%; max-width:320px; margin:0 auto 28px; }
   }
 </style>
 </head>
@@ -187,7 +182,7 @@
     </a>
     <nav class="links">
       <a href="index.html#collection">Collection</a>
-      <a href="index.html#provenance">Provenance</a>
+      <a href="index.html#features">Features</a>
       <a href="about.html" class="active">About</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -196,17 +191,15 @@
 </header>
 
 <section class="about-hero">
-  <div class="inner about-hero-grid reveal">
-    <img src="https://images.squarespace-cdn.com/content/v1/66d53142ed0ce01b2a4d64e9/7e0bd842-523c-46b6-a231-a0f5854b32bb/150337+%281%29.png" alt="Philip Mead">
-    <div>
-      <span class="label">About Mead Americana</span>
-      <p class="quote" style="margin-top:16px;">A professional historian's eye for the objects that witnessed the Revolution.</p>
-    </div>
+  <div class="inner reveal">
+    <span class="label">About Mead Americana</span>
+    <p class="quote" style="margin-top:16px;">A professional historian's eye for the objects that witnessed the Revolution.</p>
   </div>
 </section>
 
 <section class="about-body">
   <div class="inner reveal">
+    <img class="about-portrait" src="https://images.squarespace-cdn.com/content/v1/66d53142ed0ce01b2a4d64e9/7e0bd842-523c-46b6-a231-a0f5854b32bb/150337+%281%29.png" alt="Philip Mead">
     <p>Philip Mead is a professional historian with a rare combination of scholarly expertise and a lifelong instinct for uncovering the hidden stories in early American objects. He specializes in the 18th century, with a particular focus on the Revolutionary era, and brings decades of experience in identifying, researching, and authenticating historical material.</p>
 
     <p>Philip served as the founding Chief Historian and Director of Curatorial Affairs at the Museum of the American Revolution (2014–2022), where he helped shape the museum's curatorial vision from the ground up. He developed the intellectual framework for the core exhibitions, curated five major special exhibits, and led content creation for films, digital interactives, and galleries.</p>

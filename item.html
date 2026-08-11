@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Item — Mead Americana</title>
+<link rel="icon" type="image/png" href="https://images.squarespace-cdn.com/content/v1/66d53142ed0ce01b2a4d64e9/df248cca-1649-4631-a333-53d471be3985/MEAD+Americana+Logo.png?format=100w">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --parchment:#E7DCC0;
+    --paper:#F1E8D0;
+    --paper-dark:#DCCEAA;
+    --ink:#241D14;
+    --ink-soft:#5A4E3A;
+    --brass:#8C6D33;
+    --brass-light:#B79A5C;
+    --oxblood:#5B211B;
+    --indigo:#33465A;
+    --line:rgba(36,29,20,0.18);
+    --shadow: 0 10px 30px rgba(36,29,20,0.18);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    background-image:
+      radial-gradient(rgba(36,29,20,0.035) 1px, transparent 1px);
+    background-size: 3px 3px;
+    color:var(--ink);
+    font-family:'Source Serif 4', serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+
+  .label{
+    font-family:'Courier Prime', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:0.72rem;
+    color:var(--brass);
+  }
+
+  /* NAV */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:rgba(231,220,192,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-wrap{
+    max-width:1180px; margin:0 auto; padding:18px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.25rem;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    display:flex; align-items:center; gap:10px;
+  }
+  .brand-logo{
+    height:44px; width:auto;
+    mix-blend-mode:multiply;
+  }
+  nav.links{ display:flex; gap:34px; }
+  nav.links a{
+    text-decoration:none;
+    font-family:'Courier Prime', monospace;
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--ink-soft);
+    padding-bottom:4px;
+    border-bottom:1px solid transparent;
+    transition:border-color .2s, color .2s;
+  }
+  nav.links a:hover{ color:var(--oxblood); border-color:var(--oxblood); }
+  .nav-cta{
+    font-family:'Courier Prime', monospace;
+    font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em;
+    border:1px solid var(--ink); padding:8px 14px; text-decoration:none;
+    color:var(--ink); transition:all .2s;
+  }
+  .nav-cta:hover{ background:var(--ink); color:var(--parchment); }
+
+  /* SECTION shell */
+  section{ padding:96px 28px; }
+  .inner{ max-width:1180px; margin:0 auto; }
+
+  /* BACK LINK */
+  .back-link{
+    padding:32px 28px 0;
+  }
+  .back-link .inner{ max-width:1020px; }
+  .back-link a{
+    font-family:'Courier Prime', monospace; font-size:0.75rem;
+    text-transform:uppercase; letter-spacing:0.08em; text-decoration:none;
+    color:var(--ink-soft);
+  }
+  .back-link a:hover{ color:var(--oxblood); }
+
+  /* ITEM */
+  .item-section{ padding-top:40px; }
+  .item-section .inner{ max-width:1020px; }
+  .item-grid{
+    display:grid; grid-template-columns: 1fr 1fr; gap:64px; align-items:start;
+  }
+  .item-imgwrap{
+    border:1px solid var(--line);
+    padding:30px;
+    background:var(--paper);
+    box-shadow:var(--shadow);
+    display:flex; align-items:center; justify-content:center;
+    min-height:320px;
+  }
+  .item-imgwrap img{ max-height:440px; width:auto; margin:0 auto; mix-blend-mode:multiply; }
+  .item-lot{
+    display:inline-block;
+    background:var(--oxblood); color:var(--parchment);
+    font-family:'Courier Prime', monospace; font-size:0.7rem;
+    letter-spacing:0.08em; text-transform:uppercase;
+    padding:6px 12px; margin-bottom:18px;
+  }
+  .item-title{
+    font-family:'Fraunces', serif; font-weight:500;
+    font-size:clamp(1.6rem, 3vw, 2.3rem); line-height:1.3;
+    margin:0 0 22px;
+  }
+  .item-desc p{ line-height:1.85; color:var(--ink-soft); font-size:1.02rem; margin:0 0 20px; }
+  .item-foot{
+    margin-top:28px; padding-top:24px; border-top:1px dashed var(--line);
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .item-price{ font-family:'Fraunces', serif; font-weight:600; font-size:1.5rem; }
+  .item-sold{
+    font-family:'Courier Prime', monospace; font-size:0.85rem; color:var(--oxblood);
+    letter-spacing:0.06em; text-transform:uppercase;
+  }
+  .item-status{
+    font-family:'Courier Prime', monospace; font-size:0.9rem; color:var(--ink-soft);
+    padding:60px 0; text-align:center;
+  }
+
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  @media (max-width:900px){
+    nav.links{ display:none; }
+    .item-grid{ grid-template-columns:1fr; gap:32px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <img class="brand-logo" src="https://images.squarespace-cdn.com/content/v1/66d53142ed0ce01b2a4d64e9/df248cca-1649-4631-a333-53d471be3985/MEAD+Americana+Logo.png?format=1500w" alt="Mead Americana">
+    </a>
+    <nav class="links">
+      <a href="index.html#collection">Collection</a>
+      <a href="index.html#features">Features</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="nav-cta">Inquire</a>
+  </div>
+</header>
+
+<div class="back-link">
+  <div class="inner"><a href="index.html#collection">← Back to Collection</a></div>
+</div>
+
+<section class="item-section" id="item-root">
+  <div class="inner">
+    <p class="item-status">Loading…</p>
+  </div>
+</section>
+
+<script>
+  function mdToHtml(md){
+    if(!md) return '';
+    const esc = md
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    const withInline = esc
+      .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+      .replace(/\*(.+?)\*/g,'<em>$1</em>');
+    return withInline
+      .split(/\n\s*\n/)
+      .map(p => `<p>${p.trim().replace(/\n/g,'<br>')}</p>`)
+      .join('');
+  }
+
+  function formatPrice(price){
+    if(price == null) return null;
+    return '$' + price.toLocaleString('en-US');
+  }
+
+  function renderItem(item){
+    const root = document.getElementById('item-root');
+    const lotTag = item.lotNumber != null ? `Lot ${String(item.lotNumber).padStart(3,'0')}` : 'Lot —';
+    const img = item.image
+      ? `<img src="${item.image}" alt="${(item.title||'').replace(/"/g,'&quot;')}">`
+      : '';
+    const priceHTML = item.sold
+      ? `<span class="item-sold">Sold</span>`
+      : `<span class="item-price">${formatPrice(item.price) ?? 'Inquire'}</span>`;
+
+    root.innerHTML = `
+      <div class="inner">
+        <div class="item-grid reveal">
+          <div class="item-imgwrap">${img}</div>
+          <div>
+            <span class="item-lot">${lotTag}</span>
+            <h1 class="item-title">${item.title}</h1>
+            <div class="item-desc">${mdToHtml(item.description) || '<p>No description available.</p>'}</div>
+            <div class="item-foot">
+              ${priceHTML}
+              <a href="contact.html" class="nav-cta">Inquire →</a>
+            </div>
+          </div>
+        </div>
+      </div>`;
+
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:0.1});
+    root.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  }
+
+  function renderStatus(message){
+    document.getElementById('item-root').innerHTML =
+      `<div class="inner"><p class="item-status">${message}</p></div>`;
+  }
+
+  async function loadItem(){
+    const id = new URLSearchParams(location.search).get('id');
+    if(!id){
+      renderStatus('No item specified.');
+      return;
+    }
+    try{
+      const resp = await fetch('/api/catalog');
+      if(!resp.ok) throw new Error('Catalog request failed: ' + resp.status);
+      const data = await resp.json();
+      const item = (data.items || []).find(i => i.id === id && i.publish === true);
+      if(!item){
+        renderStatus('That piece could not be found — it may have been sold or removed.');
+        return;
+      }
+      document.title = `${item.title} — Mead Americana`;
+      renderItem(item);
+    }catch(err){
+      console.error('Failed to load item:', err);
+      renderStatus('Couldn\'t load this item right now. Please refresh, or get in touch directly.');
+    }
+  }
+
+  loadItem();
+</script>
+</body>
+</html>
