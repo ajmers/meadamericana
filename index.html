@@ -90,6 +90,20 @@
     color:var(--ink); transition:all .2s;
   }
   .nav-cta:hover{ background:var(--ink); color:var(--parchment); }
+  .nav-toggle{
+    display:none;
+    flex-direction:column; justify-content:center; gap:5px;
+    width:32px; height:24px;
+    background:none; border:none; padding:0; cursor:pointer;
+  }
+  .nav-toggle span{
+    display:block; height:2px; width:100%;
+    background:var(--ink); border-radius:1px;
+    transition:transform .25s ease, opacity .25s ease;
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
 
   /* HERO */
   .hero{
@@ -305,7 +319,23 @@
   }
 
   @media (max-width:900px){
-    nav.links{ display:none; }
+    .nav-toggle{ display:flex; }
+    nav.links{
+      flex-direction:column; gap:0;
+      position:absolute; top:100%; left:0; right:0;
+      background:rgba(231,220,192,0.98);
+      backdrop-filter:blur(6px);
+      border-bottom:1px solid var(--line);
+      padding:0 28px;
+      max-height:0; overflow:hidden; opacity:0;
+      pointer-events:none;
+      transition:max-height .3s ease, opacity .2s ease;
+    }
+    nav.links.open{
+      max-height:320px; opacity:1; pointer-events:auto;
+      padding:8px 28px 20px;
+    }
+    nav.links a{ padding:12px 0; border-bottom:1px solid var(--line); }
     .about-grid{ grid-template-columns:1fr; gap:36px; }
     .catalog{ grid-template-columns:1fr; }
     .features .inner{ grid-template-columns:1fr; }
@@ -320,12 +350,15 @@
     <a href="#" class="brand">
       <img class="brand-logo" src="https://images.squarespace-cdn.com/content/v1/66d53142ed0ce01b2a4d64e9/df248cca-1649-4631-a333-53d471be3985/MEAD+Americana+Logo.png?format=1500w" alt="Mead Americana">
     </a>
-    <nav class="links">
+    <nav class="links" id="nav-links">
       <a href="#collection">Collection</a>
       <a href="#features">Features</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
     <a href="contact.html" class="nav-cta">Inquire</a>
   </div>
 </header>
@@ -438,6 +471,21 @@
       entries.forEach(e=> brand.classList.toggle('visible', !e.isIntersecting));
     }, {rootMargin:`-${headerHeight}px 0px 0px 0px`, threshold:0});
     heroIO.observe(hero);
+  })();
+
+  // Mobile hamburger menu
+  (function(){
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.querySelector('nav.links');
+    if(!toggle || !links) return;
+    toggle.addEventListener('click', ()=>{
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=>{
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
   })();
 
   // Very small subset of Markdown -> HTML, just enough for what Airtable's
